@@ -1,0 +1,18 @@
+repositories {
+  mavenCentral()
+  mavenRepo urls: [
+    'http://maven.restlet.org/',
+    'http://download.java.net/maven/2'
+  ]
+}
+
+configurations { runtime }
+
+dependencies {
+  runtime('org.restlet.jse:org.restlet.example:2.0.4') { transitive = true }
+}
+
+task run(type: JavaExec) {
+  main = "org.restlet.example.${project.section}.${project.example}"
+  classpath = files(configurations.runtime)
+}
