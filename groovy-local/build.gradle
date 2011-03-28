@@ -1,13 +1,5 @@
 apply plugin: 'groovy'
 
-repositories {
-  flatDir    dirs: "${System.getenv('GROOVY_HOME')}/lib"
-}
-
 dependencies {
-  groovy module(':groovy:1.7.5') {
-    dependency('asm:asm:3.2')
-    dependency('antlr:antlr:2.7.7')
-  }
-  testCompile module(':junit:4.8.1')
+  groovy localGroovy()
 }
